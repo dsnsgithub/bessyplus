@@ -1,0 +1,13 @@
+{
+	"manifest_version": 3,
+	"name": "Bessy+",
+	"version": "1.0",
+	"description": "Improves bessy.io!",
+	"content_scripts": [
+		{
+			"js": ["scripts/inject.js"],
+			"runAt": "document_idle",
+			"matches": ["https://www.bessy.io/*"]
+		}
+	]
+}
