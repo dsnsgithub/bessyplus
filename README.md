@@ -1,4 +1,4 @@
-# Bessy+
+# Bessy++
 A chrome extension that adds small improvements to https://www.bessy.io/
 
 @Armster15 please add to bessy
