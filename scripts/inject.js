@@ -56,14 +56,14 @@ function parseGradeString(gradeString) {
 			// standards based grading
 			if (gradeString == 4) {
 				cleanGrade = 100
-			} else if (gradeString == 3) {
-				cleanGrade = 95
-			} else if (gradeString == 2) {
-				cleanGrade = 85
-			} else if (gradeString == 1.5) {
-				cleanGrade = 75
-			} else if (gradeString == 1) {
-				cleanGrade = 65
+			} else if (gradeString <= 4 && gradeString > 3) {
+				cleanGrade = 7 * gradeString + 72;
+			} else if (gradeString <= 3 && gradeString > 2) {
+				cleanGrade = 7 * gradeString + 72;
+			} else if (gradeString <= 2 && gradeString > 1.5) {
+				cleanGrade = 20 * gradeString + 46;
+			} else if (gradeString <= 1.5 ** gradeString > 1) {
+				cleanGrade = 20 * gradeString + 46;
 			} else {
 				cleanGrade = 55;
 			}
