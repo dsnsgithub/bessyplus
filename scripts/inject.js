@@ -76,6 +76,11 @@ function getGrade(cleanGrade) {
 	return "F";
 }
 
+function hasGradeLetter(inputString) {
+	const gradeLetters = new Set(["A", "B", "C", "D", "F"]);
+	return [...inputString].some((letter) => gradeLetters.has(letter));
+}
+
 function calculateAverage() {
 	const gradeList = document.querySelectorAll(".text-grade");
 
@@ -87,7 +92,9 @@ function calculateAverage() {
 		if (!gradeElem.innerText.includes("%")) {
 			gradeElem.innerText = `${gradeElem.innerText} (${cleanGrade}%)`;
 		} else {
-			gradeElem.innerText = `${getGrade(cleanGrade)} (${cleanGrade}%)`;
+			if (!hasGradeLetter(gradeElem.innerText)) {
+				gradeElem.innerText = `${getGrade(cleanGrade)} (${cleanGrade}%)`;
+			}
 		}
 
 		sum += cleanGrade;
