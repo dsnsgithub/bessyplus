@@ -3,6 +3,79 @@ const round = (number, decimalPlaces) => {
 	return Math.round(number * factorOfTen) / factorOfTen;
 };
 
+const gradingScale = [
+	{
+		grade: "F",
+		cutoff: 0,
+		average: 50
+	},
+	{
+		grade: "D-",
+		cutoff: 60,
+		average: 60
+	},
+	{
+		grade: "D",
+		cutoff: 63,
+		average: 63
+	},
+	{
+		grade: "D+",
+		cutoff: 67,
+		average: 67
+	},
+	{
+		grade: "C-",
+		cutoff: 70,
+		average: 70
+	},
+	{
+		grade: "C",
+		cutoff: 73,
+		average: 73
+	},
+	{
+		grade: "C+",
+		cutoff: 77,
+		average: 77
+	},
+	{
+		grade: "B-",
+		cutoff: 80,
+		average: 80
+	},
+	{
+		grade: "B",
+		cutoff: 83,
+		average: 83
+	},
+	{
+		grade: "B+",
+		cutoff: 87,
+		average: 87
+	},
+	{
+		grade: "A-",
+		cutoff: 90,
+		average: 90
+	},
+	{
+		grade: "A",
+		cutoff: 93,
+		average: 93
+	}
+];
+
+function getGrade(cleanGrade) {
+	for (let i = gradingScale.length - 1; i >= 0; i--) {
+		if (cleanGrade >= gradingScale[i].cutoff) {
+			return gradingScale[i].grade;
+		}
+	}
+	// If the cleanGrade is below the minimum cutoff, return "F"
+	return "F";
+}
+
 function calculateAverage() {
 	const gradeList = document.querySelectorAll(".text-grade");
 
@@ -13,6 +86,8 @@ function calculateAverage() {
 
 		if (!gradeElem.innerText.includes("%")) {
 			gradeElem.innerText = `${gradeElem.innerText} (${cleanGrade}%)`;
+		} else {
+			gradeElem.innerText = `${getGrade(cleanGrade)} (${cleanGrade}%)`;
 		}
 
 		sum += cleanGrade;
@@ -52,10 +127,9 @@ function parseGradeString(gradeString) {
 		if (gradeString.includes("%")) {
 			cleanGrade = Number(gradeString.substring(0, gradeString.length - 1));
 		} else {
-
 			// standards based grading
 			if (gradeString == 4) {
-				cleanGrade = 100
+				cleanGrade = 100;
 			} else if (gradeString <= 4 && gradeString > 3) {
 				cleanGrade = 7 * gradeString + 72;
 			} else if (gradeString <= 3 && gradeString > 2) {
