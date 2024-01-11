@@ -83,11 +83,17 @@ function hasGradeLetter(inputString) {
 
 function calculateAverage() {
 	const gradeList = document.querySelectorAll(".text-grade");
+	let numPeriods = gradeList.length;
 
 	let sum = 0;
 	let lowestGrade = Infinity;
 	for (const gradeElem of gradeList) {
 		const cleanGrade = parseGradeString(gradeElem.innerText);
+
+		if (gradeElem.innerText.includes("—")) {
+			numPeriods--;
+			continue;
+		};
 
 		if (!gradeElem.innerText.includes("%")) {
 			gradeElem.innerText = `${gradeElem.innerText} (${cleanGrade}%)`;
@@ -101,7 +107,7 @@ function calculateAverage() {
 		lowestGrade = Math.min(lowestGrade, cleanGrade);
 	}
 
-	const average = sum / gradeList.length;
+	const average = sum / numPeriods;
 	console.log("Average: ", round(average, 2));
 
 	const wrapper = document.createElement("h3");
