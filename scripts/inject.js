@@ -82,7 +82,7 @@ function hasGradeLetter(inputString) {
 }
 
 function calculateAverage() {
-	const gradeList = document.querySelectorAll(".text-grade");
+	const gradeList = document.querySelectorAll(".font-medium.text-grade");
 	let numPeriods = gradeList.length;
 
 	let sum = 0;
@@ -115,7 +115,7 @@ function calculateAverage() {
 	wrapper.innerHTML += "<span>|</span>";
 	wrapper.innerHTML += `<div style="margin-left:15px; display:inline-block;">Lowest Grade: <span class="text-grade bessy-plus">${round(lowestGrade, 2)}%</span></div>`;
 
-	const gradeTitle = document.querySelector(".flex.items-center.space-x-1.text-gray-600");
+	const gradeTitle = document.querySelector(".flex.items-center.space-x-1.text-pale-700.italic.text-sm.mt-2");
 	gradeTitle.after(wrapper);
 }
 
