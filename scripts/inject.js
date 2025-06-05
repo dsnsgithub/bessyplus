@@ -240,7 +240,7 @@ function placeButton() {
 	for (const usefulGrade of usefulGradeValues) {
 		const calculateButton = document.createElement("h3");
 		calculateButton.className =
-			"bessy-plus duration-150 font-medium rounded border-2 no-tap-highlight-color disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-2 outline-offset-4 not-focus-visible:focus:ring-[3px] px-3 py-2 bg-deepblue/90 not-disabled:hover:bg-blue-500/90 not-disabled:active:bg-blue-500/90 text-white dark:bg-deepblue dark:not-disabled:hover:bg-blue-500 dark:not-disabled:active:bg-blue-500 dark:ring-blue-500/50 border-transparent border-2";
+			"bessy-plus duration-150 text-base font-semibold rounded-2xl no-tap-highlight-color active:opacity-60 active:scale-[0.98] sm:active:scale-[0.995] px-4 py-4 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-2 outline-offset-4 bg-pale-200 not-disabled:not-active:hover:bg-pale-200/80 text-pale-950 dark:bg-pale-800 dark:not-disabled:hover:bg-pale-800/80 dark:not-disabled:active:bg-pale-800/80 dark:text-pale-100 flex justify-center items-center group !py-2 right-0 space-x-1";
 		calculateButton.textContent = `Calculate for ${usefulGrade}%`;
 		calculateButton.addEventListener("click", () => {
 			calculateMinimumGrade(usefulGrade);
